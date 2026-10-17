@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools==75.6.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdfoptimizer"
+version = "1.0.0"
+description = "基于 PDFelement 的 libPdfCore.dll 原生优化压缩流水线（桌面界面 + 命令行）"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "PySide6==6.11.2",
+]
+
+[project.optional-dependencies]
+# Python 3.14 下 PyInstaller 需 6.15.0 及以上（更早版本要求 <3.14）
+package = ["pyinstaller==6.22.3"]
+
+[project.scripts]
+pdfoptimizer = "pdfoptimizer.cli:main"
+pdfoptimizer-gui = "pdfoptimizer.ui:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pdfoptimizer = ["resources/*"]
