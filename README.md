@@ -10,6 +10,9 @@
 > ⚠️ **本项目不包含也不分发 `libPdfCore.dll`。** 该文件是 Wondershare PDFelement 的商业组件，
 > 你需要自行安装 PDFelement（或已有其安装包），本工具会在运行期自动定位它；
 > 这是为了与你自己已授权的软件互操作。请自行确认符合你所在地法律与软件许可协议。
+>
+> 本项目基于 **`libPdfCore.dll` 版本 10.4.6.6357**（PDFelement 内置 PDF 核心）完成验证；
+> 不同 PDFelement 发行版的内核版本号可能不同。
 
 ---
 
@@ -27,13 +30,13 @@
 
 * Windows 10/11 x64
 * Python **3.12 ~ 3.14**（本项目在 3.14.6 上验证）
-* 已安装 PDFelement（提供 `libPdfCore.dll`）
+* 已安装 PDFelement（提供 `libPdfCore.dll`；验证所用内核版本 **10.4.6.6357**）
 
 依赖被**精确锁定**在 `pyproject.toml`：
 
 ```
 PySide6==6.11.2                    # 唯一支持 Python 3.14 的稳定线
-pyinstaller==6.11.0                # 可选，仅打包 exe 时需要
+pyinstaller==6.22.3                # 可选，仅打包 exe 时需要（Python 3.14 下需 ≥ 6.15）
 ```
 
 ## 3. 安装
